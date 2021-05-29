@@ -11,6 +11,26 @@ ax.plot(x, y, z, label='Zad 1')
 ax.legend()
 plt.show()
 
+
+np.random.seed(100000)
+def rand(n, vmin,vmax):
+    return (vmax - vmin) * np.random.rand(n) + vmin
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+n = 2
+
+for c, m, zlow, zhigh in [('r', 'o', -50, -25), ('b', '^', -30, -5)]:
+    xs = rand(n, 23, 32)
+    ys = rand(n, 0, 100)
+    zs = rand(n, zlow, zhigh)
+    ax.scatter(xs, ys, zs, c=c, marker=m)
+
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+plt.show()
+
+
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 x = np.arange(-5, 5, 0.25)
